@@ -1,0 +1,21 @@
+databases:
+  - name: realworld_development
+    databaseName: realworld_development
+    user: aoi
+    region: ohio
+
+services:
+  - type: web
+    name: realworld_development
+    env: ruby
+    region: singapore
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: render_app
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
+        
