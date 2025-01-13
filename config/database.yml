@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql  # adapterをmysql2からpostgresqlに変更
+  encoding: unicode    # PostgreSQLに適したエンコーディングに変更
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: aoi        # PostgreSQLのユーザー名
+  password: root       # もしrootユーザーを使用する場合、パスワードを設定
+  host: db             # PostgreSQLのホスト名が正しいことを確認
+
+development:
+  <<: *default
+  database: realworld_development  # 開発用のデータベース名
+
+test:
+  <<: *default
+  database: realworld_test  # テスト用のデータベース名
+
+production:
+  <<: *default
+  database: realworld_production  # 本番用のデータベース名
+  username: <%= ENV["DATABASE_USERNAME"] %>  # 本番環境用のユーザー名
+  password: <%= ENV["DATABASE_PASSWORD"] %>  # 本番環境用のパスワード

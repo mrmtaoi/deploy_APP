@@ -1,0 +1,19 @@
+<header>
+  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+    <%= link_to '/', class: 'navbar-brand' do %>
+      <%= image_tag 'logo.png', width: '180', height: '80' %>
+    <% end %>
+
+    <div class="container">
+      <nav>
+        <ul class="header">
+          <li><%= link_to "備え一覧", all_stocks_emergency_kits_path %></li>
+          <li><%= link_to "備蓄", stocks_stocks_path %></li>
+          <li><%= link_to "防災バッグ", stocks_emergency_kits_path %></li>
+          <li><%= link_to "掲示板",   '#' %></li>
+          <li><%= link_to "マイページ", user_path(current_user) %></li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+</header>
