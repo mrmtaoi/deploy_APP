@@ -15,11 +15,11 @@ services:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
     environment:
-      - PORT=3000  # ポートを指定
+      - PORT=80  # Renderで使用するポートを80に変更
     volumes:
       - ".:/myapp"
     ports:
-      - "3000:3000"
+      - "80:3000"  # ポート80をホストにバインドし、コンテナ内の3000ポートにマッピング
     depends_on:
       - db
 
