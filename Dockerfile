@@ -16,4 +16,4 @@ RUN bundle install
 
 ADD . $APP_ROOT
 
-EXPOSE 8080
+EXPOSE 3000
